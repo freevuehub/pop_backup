@@ -1,28 +1,121 @@
-# freevue POP!
+https://freevue-rotate.netlify.com/
 
-### 목록
-* `cho`: 돌아가는 초밥 -> [Go!](https://github.com/freevuehub/pop/tree/cho)
-* `fish`: 돌아가는 어묵 -> [Go!](https://github.com/freevuehub/pop/tree/fish)
-* `pizza`: 내가 만드는 피자 -> [Go!](https://github.com/freevuehub/pop/tree/pizza)
-* `pocket`: 돌아가는 포켓몬들 -> [Go!](https://github.com/freevuehub/pop/tree/pocket)
-* `rice`: 주먹밥이 만들어지는 과정 -> [Go!](https://github.com/freevuehub/pop/tree/rice)
-* `rotate`: 회전판 -> [Go!](https://github.com/freevuehub/pop/tree/rotate)
-* `soup`: 국에서 나오는 해산물들 -> [Go!](https://github.com/freevuehub/pop/tree/soup)
-* `space`: 공전하는 인공위성과 발사되는 우주선 -> [Go!](https://github.com/freevuehub/pop/tree/space)
-* `tree`: 떨어지는 사과 -> [Go!](https://github.com/freevuehub/pop/tree/tree)
-* `year`: 편집이 가능한 전광판 -> [Go!](https://github.com/freevuehub/pop/tree/year)
-* `zerg`: 돌아가는 저글링 -> [Go!](https://github.com/freevuehub/pop/tree/zerg)
+# History
 
-### 취지
-웹 개발을 시작하면서 부족한 부분을 채우기 위해 만들기 시작했습니다.
-2017년부터 시작하여 조금씩 만들면서 공부를 했습니다.
+### 2019.01.19
+* `저장소 생성`
 
-현재 (2019년 1월) 되어서 코드리뷰를 하니 부족한 부분이 많았습니다.
-그래서 이 부분을 수정을 하고 그 과정을 공유해보고 싶어서 만들었습니다.
+javascript 상태 
+```javascript
+window.onload = function(){
+  var $btn = $('.btn');
+  var $lok = $('.lok');
+  var $rotate = $('.rotate');
+  var i = 5;
+  
+  $btn.click(function(e){
+    e.preventDefault();
+    
+    var r = Math.floor(Math.random() * 360);
+    
+    $lok.css({'z-index' : '10'});
+    $rotate.css({'transform' : 'rotate(' + ((i * 360) + r) + 'deg)'});
+    
+    i = i + 5;
+    
+    setTimeout(function(){
+      if(r >= 0 && r < 90){
+        location.href = "http://hong-web.com/POP/soup/";
+      }else if(r >= 90 && r < 180){
+        location.href = "http://hong-web.com/POP/pizza/";
+      }else if(r >= 180 && r < 270){
+        location.href = "http://hong-web.com/POP/zerg/";
+      }else if(r >= 270 && r <= 360){
+        location.href = "http://hong-web.com/POP/rice/";
+      }
+      
+      $lok.css({'z-index' : '-1'});
+    }, 3010);
+  });
+  
+  $lok.click(function(e){
+    e.preventDefault();
+    
+    var l = Math.floor(Math.random() * 10);
+    var text;
+    
+    if(l === 0 || l == 5){
+      text = '돌고 있습니다.';
+    }else if(l == 1 || l == 6){
+      text = '3초만 기다리면 되는데;';
+    }else if(l == 2 || l == 7){
+      text = '기다리세요';
+    }else if(l == 3 || l == 8){
+      text = '이거 이후로 당분간 쉬어야지..';
+    }else if(l == 4 || l == 9){
+      text = '왠지 도는 중에 누를 것 같더라';
+    }
+    
+    alert(text);
+  });
+}
+```
+css 상태
+```css
+* {margin:0; padding:0;}
+ul,ol {list-style:none;}
+img {border:0; display:block; width:100%;}
+a {text-decoration:none; color:#000;}
 
-### 목표
-대부분이 jQuery로 만들었고, 알고리즘이란 기대도 할 수 없는 코드입니다.
-또한 모바일 환경만 생각하여 여러 기기들을 지원하고 있지 않습니다.
-심지어 크로스 브라우징도 생각하지 않았습니다.
+html,body {height:100%; overflow:hidden;}
 
-앞으로 jQuery를 걷어낼 생각이며 여러 기기들, 크로스 브라우징도 적용해볼 생각입니다. 
+.table {display:table; width:100%; height:100%; text-align:center;}
+.table .cell {display:table-cell; vertical-align:middle;}
+.table .cell .box {--width:50%; margin:0 auto; position:relative;}
+.table .cell .box .rotate {width:70vw; height:70vw; border-radius:50%; margin:0 auto; border:2px solid #000; overflow:hidden; transform-origin:center; transition:transform 3s;}
+.table .cell .box .rotate ul {width:100%; height:100%; overflow:hidden;}
+.table .cell .box .rotate ul li {width:50%; height:50%; float:left;}
+.table .cell .box .rotate ul li p {font-size:50px; line-height:28vw; transform-origin:center; padding-top:5vw; box-sizing:border-box;}
+.table .cell .box .rotate ul li p img {width:30%; display:inline;}
+.table .cell .box .rotate ul li:nth-child(1) {background-color:dodgerblue}
+.table .cell .box .rotate ul li:nth-child(2) {background-color:beige}
+.table .cell .box .rotate ul li:nth-child(3) {background-color:burlywood}
+.table .cell .box .rotate ul li:nth-child(4) {background-color:cadetblue}
+.table .cell .box .rotate ul li:nth-child(1) p {transform:rotate(-45deg);}
+.table .cell .box .rotate ul li:nth-child(2) p {transform:rotate(45deg);}
+.table .cell .box .rotate ul li:nth-child(3) p {transform:rotate(-135deg);}
+.table .cell .box .rotate ul li:nth-child(4) p {transform:rotate(135deg);}
+.table .cell .btn {position:fixed; width:20vw; height:20vw; border-radius:50%; text-align:center; line-height:20vw; top:50%; left:50%; margin-top:-10vw; margin-left:-10vw; background-color:#fff; font-size:5vw; font-weight:700; background-color:darkred; font-family: 'Raleway', sans-serif; color:#fff;}
+.table .cell .btn .sq {display:block; position:absolute; width:4vw; height:4vw; transform-origin:center; transform:rotate(45deg); top:-1vw; left:50%; margin-left:-2vw; background-color:darkred;}
+.table .cell .lok {position:fixed; width:20vw; height:20vw; border-radius:50%; text-align:center; line-height:20vw; top:50%; left:50%; margin-top:-10vw; margin-left:-10vw; z-index:-1; opacity:0;}
+```
+html 상태
+```html
+<div class="table">
+  <div class="cell">
+    <div class="box">
+      <div class="rotate">
+        <ul>
+          <li>
+            <p><img src="soup.png"></p>
+          </li>
+          <li>
+            <p><img src="rice.png"></p>
+          </li>
+          <li>
+            <p><img src="shirimp.png"></p>
+          </li>
+          <li>
+            <p><img src="zerg.png"></p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="btn">
+      <span class="sq"></span>
+      SPIN
+    </div>
+    <div class="lok"></div>
+  </div>
+</div>
+```
