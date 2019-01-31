@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Pocketmon</title>
+
+		<meta name="viewport" content="width=device-width,initial-scale=1.0 user-scalable=no">
+		<meta name="theme-color" content="#222">
+		<meta property="og:image" content="p1.svg">
+
+		<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+		<style>
+			* {margin:0; padding:0;}
+			ul,ol {list-style:none;}
+			img {border:0;}
+			a {text-decoration:none; color:#000;}
+
+			html,body {height:100%;}
+
+			#pocket {height:100%; overflow:hidden;}
+			#pocket img {margin:8vw auto; transition:all 0.5s;}
+			#pocket button {display:block; margin:0 auto; border:0; background-color:transparent;}
+		</style>
+	</head>
+	<body>
+		<div id="pocket">
+			<img v-bind:src="img" v-on:click="rotate">
+			<button v-on:click="change"><img src="f5.png" alt=""></button>
+		</div>
+	</body>
+
+	<script>
+		var i = 0;
+		var pocket = new Vue({
+			el : '#pocket',
+			data : {
+				img : 'p' + Math.floor(Math.random() * 23) + '.svg'
+			},
+			methods : {
+				rotate : function(){
+					i++;
+
+					this.$el.children[0].style.transform = 'rotate(' + i * 360 + 'deg)';
+				},
+				change : function(){
+					var ran = Math.floor(Math.random() * 23);
+					var _this = this
+
+					if(ran === 0) ran = 1;
+
+					i++;
+
+					this.$el.children[0].style.transform = 'rotate(' + i * 360 + 'deg)';
+
+					setTimeout(function(){
+						_this.img = 'p' + ran + '.svg';
+					}, 180);
+				}
+			}
+		});
+	</script>
+
+</html>
