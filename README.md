@@ -1,28 +1,246 @@
-# freevue POP!
+https://freevue-year.netlify.com/
 
-### 목록
-* `cho`: 돌아가는 초밥 -> [Go!](https://github.com/freevuehub/pop/tree/cho)
-* `fish`: 돌아가는 어묵 -> [Go!](https://github.com/freevuehub/pop/tree/fish)
-* `pizza`: 내가 만드는 피자 -> [Go!](https://github.com/freevuehub/pop/tree/pizza)
-* `pocket`: 돌아가는 포켓몬들 -> [Go!](https://github.com/freevuehub/pop/tree/pocket)
-* `rice`: 주먹밥이 만들어지는 과정 -> [Go!](https://github.com/freevuehub/pop/tree/rice)
-* `rotate`: 회전판 -> [Go!](https://github.com/freevuehub/pop/tree/rotate)
-* `soup`: 국에서 나오는 해산물들 -> [Go!](https://github.com/freevuehub/pop/tree/soup)
-* `space`: 공전하는 인공위성과 발사되는 우주선 -> [Go!](https://github.com/freevuehub/pop/tree/space)
-* `tree`: 떨어지는 사과 -> [Go!](https://github.com/freevuehub/pop/tree/tree)
-* `year`: 편집이 가능한 전광판 -> [Go!](https://github.com/freevuehub/pop/tree/year)
-* `zerg`: 돌아가는 저글링 -> [Go!](https://github.com/freevuehub/pop/tree/zerg)
+# History
 
-### 취지
-웹 개발을 시작하면서 부족한 부분을 채우기 위해 만들기 시작했습니다.
-2017년부터 시작하여 조금씩 만들면서 공부를 했습니다.
+### 2019.01.19
+* `저장소 생성`
 
-현재 (2019년 1월) 되어서 코드리뷰를 하니 부족한 부분이 많았습니다.
-그래서 이 부분을 수정을 하고 그 과정을 공유해보고 싶어서 만들었습니다.
+javascript 상태 
+```javascript
+var num = 68;
+var sp = 100;
 
-### 목표
-대부분이 jQuery로 만들었고, 알고리즘이란 기대도 할 수 없는 코드입니다.
-또한 모바일 환경만 생각하여 여러 기기들을 지원하고 있지 않습니다.
-심지어 크로스 브라우징도 생각하지 않았습니다.
+for(var c = 0; c <= num; c++){
+  $('.line').append('<div class="cell num_'+ (c) + '"></div>');
+}
 
-앞으로 jQuery를 걷어낼 생각이며 여러 기기들, 크로스 브라우징도 적용해볼 생각입니다. 
+function CellSetting() {
+  $('.control .line').each(function(){
+    $(this).css({'width' : ($(this).find('>.cell').size() * 100) / 18 + '%'});
+  });
+
+  $('.box .line').each(function(){
+    $(this).css({'width' : ($(this).find('>.cell').size() * 100) / 45 + '%'});
+  });
+
+  CellOn();
+}
+
+CellSetting();
+
+$('.number_box').find('i').text(num - 1);
+$('.number_box').find('.up').click(function(){
+  num++;
+
+  $('.number_box').find('i').text(num - 1);
+  $('.line').append('<div class="cell num_'+ num + '"></div>');
+
+  CellSetting();
+});
+
+$('.line1').each(function(){
+  $(this).find('.cell').each(function(l){
+    if(l == 0 || l == 3) {$(this).addClass('on');}
+    if(l == 6 || l == 7) {$(this).addClass('on');}
+    if(l == 10 || l == 11 || l == 12 || l == 13) {$(this).addClass('on');}
+    if(l == 15 || l == 16 || l == 17 || l == 18) {$(this).addClass('on');}
+    if(l == 20 || l == 24) {$(this).addClass('on');}
+    if(l == 27 || l == 31) {$(this).addClass('on');}
+    if(l == 33 || l == 34 || l == 35 || l == 36) {$(this).addClass('on');}
+    if(l == 38 || l == 40 || l == 42) {$(this).addClass('on');}
+    if(l == 45 || l == 49) {$(this).addClass('on');}
+    if(l == 51 || l == 52 || l == 53 || l == 54) {$(this).addClass('on');}
+    if(l == 57 || l == 58) {$(this).addClass('on');}
+    if(l == 61 || l == 62 || l == 63 || l == 64) {$(this).addClass('on');}
+    if(l == 66) {$(this).addClass('on');}
+  });
+});
+$('.line2').each(function(){
+  $(this).find('.cell').each(function(l){
+    if(l == 0 || l == 3) {$(this).addClass('on');}
+    if(l == 5 || l == 8) {$(this).addClass('on');}
+    if(l == 10 || l == 13) {$(this).addClass('on');}
+    if(l == 15 || l == 18) {$(this).addClass('on');}
+    if(l == 21 || l == 23) {$(this).addClass('on');}
+    if(l == 27 || l == 28 || l == 31) {$(this).addClass('on');}
+    if(l == 33) {$(this).addClass('on');}
+    if(l == 38 || l == 40 || l == 42) {$(this).addClass('on');}
+    if(l == 46 || l == 48) {$(this).addClass('on');}
+    if(l == 51) {$(this).addClass('on');}
+    if(l == 56 || l == 59) {$(this).addClass('on');}
+    if(l == 61 || l == 64) {$(this).addClass('on');}
+    if(l == 66) {$(this).addClass('on');}
+  });
+});
+$('.line3').each(function(){
+  $(this).find('.cell').each(function(l){
+    if(l == 0 || l == 1 || l == 2 || l == 3) {$(this).addClass('on');}
+    if(l == 5 || l == 6 || l == 7 || l == 8) {$(this).addClass('on');}
+    if(l == 10 || l == 11 || l == 12 || l == 13) {$(this).addClass('on');}
+    if(l == 15 || l == 16 || l == 17 || l == 18) {$(this).addClass('on');}
+    if(l == 22) {$(this).addClass('on');}
+    if(l == 27 || l == 29 || l == 31) {$(this).addClass('on');}
+    if(l == 33 || l == 34 || l == 35 || l == 36) {$(this).addClass('on');}
+    if(l == 38 || l == 40 || l == 42) {$(this).addClass('on');}
+    if(l == 47) {$(this).addClass('on');}
+    if(l == 51 || l == 52 || l == 53 || l == 54) {$(this).addClass('on');}
+    if(l == 56 || l == 57 || l == 58 || l == 59) {$(this).addClass('on');}
+    if(l == 61 || l == 62 || l == 63 || l == 64) {$(this).addClass('on');}
+    if(l == 66) {$(this).addClass('on');}
+  });
+});
+$('.line4').each(function(){
+  $(this).find('.cell').each(function(l){
+    if(l == 0 || l == 3) {$(this).addClass('on');}
+    if(l == 5 || l == 8) {$(this).addClass('on');}
+    if(l == 10) {$(this).addClass('on');}
+    if(l == 15) {$(this).addClass('on');}
+    if(l == 22) {$(this).addClass('on');}
+    if(l == 27 || l == 30 || l == 31) {$(this).addClass('on');}
+    if(l == 33) {$(this).addClass('on');}
+    if(l == 38 || l == 40 || l == 42) {$(this).addClass('on');}
+    if(l == 47) {$(this).addClass('on');}
+    if(l == 51) {$(this).addClass('on');}
+    if(l == 56 || l == 59) {$(this).addClass('on');}
+    if(l == 61 || l == 63) {$(this).addClass('on');}
+  });
+});
+$('.line5').each(function(){
+  $(this).find('.cell').each(function(l){
+    if(l == 0 || l == 3) {$(this).addClass('on');}
+    if(l == 5 || l == 8) {$(this).addClass('on');}
+    if(l == 10) {$(this).addClass('on');}
+    if(l == 15) {$(this).addClass('on');}
+    if(l == 22) {$(this).addClass('on');}
+    if(l == 27 || l == 31) {$(this).addClass('on');}
+    if(l == 33 || l == 34 || l == 35 || l == 36) {$(this).addClass('on');}
+    if(l == 39 || l == 41) {$(this).addClass('on');}
+    if(l == 47) {$(this).addClass('on');}
+    if(l == 51 || l == 52 || l == 53 || l == 54) {$(this).addClass('on');}
+    if(l == 56 || l == 59) {$(this).addClass('on');}
+    if(l == 61 || l == 64) {$(this).addClass('on');}
+    if(l == 66) {$(this).addClass('on');}
+  });
+});
+
+function CellOn() {
+  $('.control .cell').click(function(e){
+    var $line = $(this).parent()[0].classList[1];
+    var $cell = e.currentTarget.classList[1];
+    console.log($cell)
+    $(this).toggleClass('on');
+
+    $('.box').find('.' + $line).find('.' + $cell).toggleClass('on');
+  });
+}
+
+setTimeout(function(){
+  setInterval(function(){
+    $('.box .line').animate({'left' : '-' + 2 + 'vw'}, sp, function(){
+      $(this).find('>.cell').first().appendTo($(this));
+      $(this).css({'left' : 0});
+    });
+  }, sp);
+}, 1000);
+```
+css 상태
+```css
+* {margin:0; padding:0;}
+ul,ol {list-style:none;}
+img {border:0; display:block; width:100%;}
+a {text-decoration:none; color:#000;}
+
+html,body {height:100%;}
+
+.wrap {height:100%; padding:5vw 0; box-sizing:border-box;}
+.wrap .table {display:table; height:100%; width:100%;}
+.wrap .table .table-cell {display:table-cell; vertical-align:middle; width:100%;}
+
+.wrap .table .table-cell .com {border:1px solid #ccc; margin:0 auto; width:90vw; border-top:0; border-left:0;}
+.wrap .table .table-cell .com .line {overflow:hidden;}
+.wrap .table .table-cell .com .line .cell {border:1px solid #ccc; box-sizing:border-box; background-color:rgb(247, 223, 12); transition:background 0.5s; float:left; border-right:0; border-bottom:0;}
+.wrap .table .table-cell .com .line .cell.on {background-color:rgb(250, 96, 96);}
+
+.wrap .table .table-cell .control {margin-top:3vw; overflow-X:scroll; margin-bottom:5vw;}
+.wrap .table .table-cell .control .line .cell {width:5vw; height:5vw; cursor:pointer;}
+
+.wrap .table .table-cell h2 {font-size:5vw; text-align:center; width:90vw; border-top:1px solid #adadad; padding-top:3vw; margin:0 auto; margin-top:5vw;}
+.wrap .table .table-cell .remote {overflow:hidden; width:90vw; margin:0 auto; margin-bottom:3vw;}
+.wrap .table .table-cell .remote div {font-size:5vw; overflow:hidden; float:left;}
+.wrap .table .table-cell .remote div.speed_box {float:right;}
+.wrap .table .table-cell .remote div>* {float:left;}
+.wrap .table .table-cell .remote div span {display:block; background-color:#fff; width:0px; height:0PX; margin-left:3vw; margin-top:2vw; cursor:pointer;}
+.wrap .table .table-cell .remote div span.up {border-left:3vw solid transparent; border-right:3vw solid transparent; border-bottom:3vw solid black;}
+.wrap .table .table-cell .remote div span.down {border-left:3vw solid transparent; border-right:3vw solid transparent; border-top:3vw solid black;}
+.wrap .table .table-cell .remote div i {display:block; font-size:5vw; font-style:normal; margin-left:3vw;}
+
+.wrap .table .table-cell .box {overflow:hidden; border:0; box-sizing:content-box;}
+.wrap .table .table-cell .box .line {position:relative;}
+.wrap .table .table-cell .box .line .cell {width:2vw; height:2vw; border:0;}
+```
+html 상태
+```html
+<div class="wrap">
+  <div class="table">
+    <div class="table-cell">
+      <div class="remote">
+        <!-- <div class="number_box">
+          <p>Number</p>
+          <span class="up"></span>
+          <i>4</i>
+          <span class="down"></span>
+        </div>
+        <div class="speed_box">
+          <p>Speed</p>
+          <span class="up"></span>
+          <i>5</i>
+          <span class="down"></span>
+        </div> -->
+      </div>
+      <div class="box com">
+        <div class="line line0">
+
+        </div>
+        <div class="line line1">
+
+        </div>
+        <div class="line line2">
+
+        </div>
+        <div class="line line3">
+
+        </div>
+        <div class="line line4">
+
+        </div>
+        <div class="line line5">
+
+        </div>
+        <div class="line line6">
+
+        </div>
+      </div>
+
+      <h2>Edit..</h2>
+
+      <div class="control com">
+          <div class="line line1">
+
+          </div>
+          <div class="line line2">
+
+          </div>
+          <div class="line line3">
+
+          </div>
+          <div class="line line4">
+
+          </div>
+          <div class="line line5">
+
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+```
