@@ -46,3 +46,58 @@ html 상태
   </div>
 </div>
 ```
+
+### 2018.01.20
+* `코드 개선`
+* `jQuery 제거`
+* `모바일, PC 최적화`
+* `javascript 변수 선언 최소화`
+
+javascript 상태 
+```javascript
+let $_axis = document.querySelector('.axis');
+let $_rotate = document.querySelector('.rotate');
+
+(function handleRotate (i = 0) {
+  i = (i > 360) ? 0 : ++i;
+
+  $_axis.style.transform = 'rotate(' + i + 'deg)'
+  $_rotate.style.transform = 'translate(-50%, -50%) rotate(-' + i + 'deg)'
+
+  setTimeout(function() {
+    handleRotate(i);
+  }, 20)
+})();
+```
+css 상태 (공통 부분 생략)
+```css
+.container {
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.grid {
+  margin: 0 auto;
+  position: relative;
+}
+.grid>img.rotate {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(288/512*100%);
+  transform-origin: center;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+```
+html 상태
+```html
+<div class="container">
+  <div class="grid">
+    <img src="gray.png" class="axis">
+    <img src="pink.png" class="rotate">
+  </div>
+</div>
+```
