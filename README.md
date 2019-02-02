@@ -110,7 +110,7 @@ let $_titleSpan = document.querySelector('.title').children;
 })();
 
 (function rotateFoodBox (i = 0) {
-  i > 360? i = 0 : i++;
+  i > 360 ? i = 0 : i++;
 
   for (let $_food of $_foods) $_food.style.transform = 'rotate(-' + i + 'deg)';
 
