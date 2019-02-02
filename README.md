@@ -101,3 +101,72 @@ html 상태
   </div>
 </div>
 ```
+
+### 2019.02.03
+* `PWA 적용`
+* `코드 개선`
+
+javascript 상태
+```javascript
+let $_axis = document.querySelector('.axis');
+let $_rotate = document.querySelector('.rotate');
+
+(function handleRotate (i = 0) {
+  i = (i > 360) ? 0 : ++i;
+
+  $_axis.style.transform = 'rotate(' + i + 'deg)'
+  $_rotate.style.transform = 'translate(-50%, -50%) rotate(-' + i + 'deg)'
+
+  setTimeout(() => {
+    handleRotate(i);
+  }, 20)
+})();
+```
+app.js
+```javascript
+window.addEventListener('load', async () => {
+  if ('serviceWorker' in navigator) {
+    await navigator.serviceWorker.register('./sw.js');
+  }
+});
+```
+Service-Worker
+```javascript
+const staticAssets = [
+  './',
+  './app.js',
+  './gray.png',
+  './pink.png'
+];
+
+self.addEventListener('install', async () => {
+  const cache = await caches.open('new-static');
+
+  cache.addAll(staticAssets);
+});
+
+self.addEventListener('fetch', e => {
+  const req = e.request;
+
+  e.respondWith(cacheFirst(req));
+});
+
+const cacheFirst = async req => {
+  const cachedResponse = await caches.match(req);
+
+  return cachedResponse || fetch(req);
+};
+```
+html 상태 `<head>` 부분
+```html
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>어묵</title>
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0 user-scalable=no">
+<meta name="theme-color" content="#e4e4e6">
+<meta property="og:image" content="gray.png">
+
+<link rel="manifest" href="manifest.json">
+```
