@@ -5,8 +5,9 @@
 	<title>어묵</title>
 
 	<meta name="viewport" content="width=device-width,initial-scale=1.0 user-scalable=no">
-	<meta name="theme-color" content="#555">
 	<meta property="og:image" content="gray.png">
+
+	<link rel="manifest" href="manifest.json">
 
 	<style>
 		* {margin:0; padding:0;}
@@ -56,10 +57,11 @@
     $_axis.style.transform = 'rotate(' + i + 'deg)'
     $_rotate.style.transform = 'translate(-50%, -50%) rotate(-' + i + 'deg)'
 
-    setTimeout(function() {
+    setTimeout(() => {
       handleRotate(i);
     }, 20)
   })();
 </script>
+<script src="app.js"></script>
 </body>
 </html>
