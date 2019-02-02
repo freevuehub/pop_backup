@@ -2,7 +2,7 @@ https://freevue-fish.netlify.com/
 
 # History
 
-### 2018.01.19
+### 2019.01.19
 * `저장소 생성`
 
 javascript 상태 
@@ -47,7 +47,7 @@ html 상태
 </div>
 ```
 
-### 2018.01.20
+### 2019.01.20
 * `코드 개선`
 * `jQuery 제거`
 * `모바일, PC 최적화`
