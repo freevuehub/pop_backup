@@ -164,6 +164,8 @@ html 상태 `<head>` 부분
 
 <title>어묵</title>
 
+<link rel="icon" href="favicon.png">
+
 <meta name="viewport" content="width=device-width,initial-scale=1.0 user-scalable=no">
 <meta name="theme-color" content="#e4e4e6">
 <meta property="og:image" content="gray.png">
