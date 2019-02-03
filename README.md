@@ -105,6 +105,7 @@ html 상태
 ### 2019.02.03
 * `PWA 적용`
 * `코드 개선`
+* `favicon 적용`
 
 javascript 상태
 ```javascript
