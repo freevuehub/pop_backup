@@ -90,6 +90,41 @@ function handleRotate (fn, r = 180, t = 17) {
   }, 2000);
 }
 ```
+app.js 
+```javascript
+window.addEventListener('load', async () => {
+  if ('serviceWorker' in navigator) {
+    await navigator.serviceWorker.register('./sw.js');
+  }
+});
+```
+Service-Worker 
+```javascript
+const staticAssets = [
+  './',
+  './app.js',
+  './rice.png',
+  './bowl.png'
+];
+
+self.addEventListener('install', async () => {
+  const cache = await caches.open('new-static');
+
+  cache.addAll(staticAssets);
+});
+
+self.addEventListener('fetch', e => {
+  const req = e.request;
+
+  e.respondWith(cacheFirst(req));
+});
+
+const cacheFirst = async req => {
+  const cachedResponse = await caches.match(req);
+
+  return cachedResponse || fetch(req);
+};
+```
 css 상태 (공통 부분 생략)
 ```css
 .container {
@@ -139,4 +174,19 @@ html 상태
     <img class="rice" src="./Untitled-2.png" alt="rice">
   </div>
 </div>
+```
+html 상태 `<head>` 부분
+```html
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>밥</title>
+
+<link rel="icon" href="favicon.png">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0 user-scalable=no">
+<meta name="theme-color" content="#e4e4e6">
+<meta property="og:image" content="./images/icons/icon-128x128.png">
+
+<link rel="manifest" href="manifest.json">
 ```
