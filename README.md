@@ -65,6 +65,8 @@ html 상태
 * `jQuery 제거`
 * `모바일, PC 최적화`
 * `javascript 변수 선언 최소화`
+* `PWA 적용`
+* `favicon 적용`
 
 javascript 상태 
 ```javascript
