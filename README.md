@@ -207,3 +207,57 @@ html 상태
   </div>
 </div>
 ```
+
+### 2019.04.13
+* `javascript 최소화`
+* `CSS3 활용`
+
+javascript 상태 
+```javascript
+let $_titleSpan = document.querySelector('.title').children;
+
+(function titleColor () {
+    for (let $_span of $_titleSpan) $_span.style.color = randomRGB();
+
+    setTimeout(function () {
+        return titleColor();
+    }, 1300);
+})();
+
+function randomRGB () {
+    let r = Math.round(Math.random() * 255);
+    let g = Math.round(Math.random() * 255);
+    let b = Math.round(Math.random() * 255);
+
+    return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+}
+```
+css 상태 (공통 부분 생략)
+```css
+.food-box {
+    transform-origin: center;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -150px;
+    margin-left: -150px;
+    animation: 5.5s rotate infinite linear;
+}
+.food {
+    position: absolute;
+    transform-origin: center;
+    width: 120px;
+    animation: 5.5s rotate infinite linear reverse;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+```
