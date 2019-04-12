@@ -173,3 +173,53 @@ html 상태 `<head>` 부분
 
 <link rel="manifest" href="manifest.json">
 ```
+
+### 2019.02.03
+* `javascript 제거`
+
+javascript 상태
+```javascript
+```
+css 상태
+```css
+.container {
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.grid {
+    width: 512px;
+    height: 100%;
+    position: relative;
+}
+
+.rotate {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: calc(288/512*100%);
+    transform-origin: center;
+    transform: translate(-50%, -50%) rotate(0deg);
+    animation: rotate 6s infinite linear reverse;
+}
+
+.axis {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    animation: rotate 6s infinite linear;
+}
+
+@keyframes rotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+```
