@@ -251,6 +251,10 @@ css 상태 (공통 부분 생략)
     width: 120px;
     animation: 5.5s rotate infinite linear reverse;
 }
+.food>object {
+    display: block;
+    width: 100%;
+}
 
 @keyframes rotate {
     0% {
@@ -260,4 +264,28 @@ css 상태 (공통 부분 생략)
         transform: rotate(360deg);
     }
 }
+```
+html 상태
+```html
+<div class="container">
+    <h1 class="title">
+        <span>회전</span>
+        <span>초밥</span>
+    </h1>
+
+    <div class="food-box">
+        <div class="food item1">
+            <object type="image/svg+xml" data="if-food-c212-2427856_85719.svg">현재 브라우저는 iframe을 지원하지 않습니다.</object>
+        </div>
+        <div class="food item2">
+            <object type="image/svg+xml" data="if-food-c212-2427856_85719.svg">현재 브라우저는 iframe을 지원하지 않습니다.</object>
+        </div>
+        <div class="food item3">
+            <object type="image/svg+xml" data="if-food-c212-2427856_85719.svg">현재 브라우저는 iframe을 지원하지 않습니다.</object>
+        </div>
+        <div class="food item4">
+            <object type="image/svg+xml" data="if-food-c212-2427856_85719.svg">현재 브라우저는 iframe을 지원하지 않습니다.</object>
+        </div>
+    </div>
+</div>
 ```
