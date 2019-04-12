@@ -174,7 +174,7 @@ html 상태 `<head>` 부분
 <link rel="manifest" href="manifest.json">
 ```
 
-### 2019.02.03
+### 2019.04.12
 * `javascript 제거`
 
 javascript 상태
