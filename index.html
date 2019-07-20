@@ -1,125 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0 user-scalable=no">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0 user-scalable=no">
 
-    <title>초밥</title>
+  <title>초밥</title>
 
-    <style>
-        * {margin:0; padding:0;}
-        ul,ol {list-style:none;}
-        img {border:0;}
-        a {text-decoration:none; color:#000;}
+  <style>
+    * {margin:0; padding:0;}
+    ul,ol {list-style:none;}
+    img {border:0;}
+    a {text-decoration:none; color:#000;}
 
-        html,body {height:100%;}
+    html,body {height:100%;}
 
-        .container {
-            overflow: hidden;
-            display: flex;
-            width: 100%;
-            height: 100%;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        .title {
-            font-size: 40px;
-        }
-        .title>span {
-            transition: color .5s;
-        }
+    .container {
+      overflow: hidden;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .title {
+      font-size: 40px;
+    }
+    .title>span {
+      transition: color .5s;
+    }
 
-        .food-box {
-            transform-origin: center;
-            width: 300px;
-            height: 300px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            margin-top: -150px;
-            margin-left: -150px;
-            animation: 5.5s rotate infinite linear;
-        }
-        .food {
-            position: absolute;
-            transform-origin: center;
-            width: 120px;
-            animation: 5.5s rotate infinite linear reverse;
-        }
-        .food>object {
-            display: block;
-            width: 100%;
-        }
-        .food.item1 {
-            top: 0;
-            right: 0;
-        }
-        .food.item2 {
-            top: 0;
-            left: 0;
-        }
-        .food.item3 {
-            left: 0;
-            bottom: 0;
-        }
-        .food.item4 {
-            bottom: 0;
-            right: 0;
-        }
+    .food-box {
+      transform-origin: center;
+      width: 300px;
+      height: 300px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-top: -150px;
+      margin-left: -150px;
+      animation: 5.5s rotate infinite linear;
+    }
+    .food {
+      position: absolute;
+      transform-origin: center;
+      width: 120px;
+      animation: 5.5s rotate infinite linear reverse;
+    }
+    .food>object {
+      display: block;
+      width: 100%;
+    }
+    .food.item1 {
+      top: 0;
+      right: 0;
+    }
+    .food.item2 {
+      top: 0;
+      left: 0;
+    }
+    .food.item3 {
+      left: 0;
+      bottom: 0;
+    }
+    .food.item4 {
+      bottom: 0;
+      right: 0;
+    }
 
-        @keyframes rotate {
-            0% {
-                transform: rotate(0);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
+    @keyframes rotate {
+      0% {
+        transform: rotate(0);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
 </head>
 
 <body>
 <div class="container">
-    <h1 class="title">
-        <span>회전</span>
-        <span>초밥</span>
-    </h1>
+  <h1 class="title">
+    <span>회전</span>
+    <span>초밥</span>
+  </h1>
 
-    <div class="food-box">
-        <div class="food item1">
-            <object type="image/svg+xml" data="if-food-c212-2427856_85719.svg">현재 브라우저는 iframe을 지원하지 않습니다.</object>
-        </div>
-        <div class="food item2">
-            <object type="image/svg+xml" data="if-food-c212-2427856_85719.svg">현재 브라우저는 iframe을 지원하지 않습니다.</object>
-        </div>
-        <div class="food item3">
-            <object type="image/svg+xml" data="if-food-c212-2427856_85719.svg">현재 브라우저는 iframe을 지원하지 않습니다.</object>
-        </div>
-        <div class="food item4">
-            <object type="image/svg+xml" data="if-food-c212-2427856_85719.svg">현재 브라우저는 iframe을 지원하지 않습니다.</object>
-        </div>
+  <div class="food-box">
+    <div class="food item1">
+      <object type="image/svg+xml" data="cho.svg">현재 브라우저는 지원하지 않습니다.</object>
     </div>
+    <div class="food item2">
+      <object type="image/svg+xml" data="cho.svg">현재 브라우저는 지원하지 않습니다.</object>
+    </div>
+    <div class="food item3">
+      <object type="image/svg+xml" data="cho.svg">현재 브라우저는 지원하지 않습니다.</object>
+    </div>
+    <div class="food item4">
+      <object type="image/svg+xml" data="cho.svg">현재 브라우저는 지원하지 않습니다.</object>
+    </div>
+  </div>
 </div>
 
 <script>
-    let $_titleSpan = document.querySelector('.title').children;
+  let $_titleSpan = document.querySelector('.title').children;
 
-    (function titleColor () {
-        for (let $_span of $_titleSpan) $_span.style.color = randomRGB();
+  (function titleColor () {
+    for (let $_span of $_titleSpan) $_span.style.color = randomRGB();
 
-        setTimeout(function () {
-            return titleColor();
-        }, 1300);
-    })();
+    setTimeout(function () {
+      return titleColor();
+    }, 1300);
+  })();
 
-    function randomRGB () {
-        let r = Math.round(Math.random() * 255);
-        let g = Math.round(Math.random() * 255);
-        let b = Math.round(Math.random() * 255);
+  function randomRGB () {
+    let r = Math.round(Math.random() * 255);
+    let g = Math.round(Math.random() * 255);
+    let b = Math.round(Math.random() * 255);
 
-        return 'rgb(' + r + ', ' + g + ', ' + b + ')';
-    }
+    return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+  }
 </script>
 </body>
 </html>

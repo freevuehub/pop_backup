@@ -1,4 +1,4 @@
-https://freevue-cho.netlify.com/
+https://freevue-pop.netlify.com/cho/
 
 # History
 
