@@ -1,4 +1,4 @@
-https://freevue-rice.netlify.com/
+https://freevue-pop.netlify.com/rice/
 
 # History
 
