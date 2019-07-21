@@ -42,3 +42,5 @@
 * `master` 메인페이지 제작
 * `rice` URL 변경 및 기존 URL 제거
 * `cho` URL 변경 및 기존 URL 제거
+###### 2019.07.21
+* `master` 메인 페이지 PWA 제작
