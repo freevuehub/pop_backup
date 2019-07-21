@@ -1,11 +1,12 @@
 {
-  "short_name": "Freevue - POP",
+  "name": "Freevue-Project",
+  "short_name": "Freevue-POP",
   "theme_color": "#e4e4e6",
   "background_color": "#E4E4E6",
   "display": "standalone",
   "orientation": "portrait",
   "Scope": "/",
-  "start_url": "/",
+  "start_url": "/index.html",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
