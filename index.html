@@ -5,7 +5,7 @@
 		<title>국</title>
 
 		<meta name="viewport" content="width=800px,user-scalable=no">
-		<meta property="og:image" content="body.png">
+		<meta property="og:image" content="pot.png">
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
@@ -63,21 +63,91 @@
 
 			html,body {height:100%; overflow:hidden;}
 
-			.table {display:table; width:100%; height:100%; text-align:center;}
+			/* .table {display:table; width:100%; height:100%; text-align:center;}
 			.table .cell {display:table-cell; vertical-align:middle;}
 			.table .cell .box {width:35%; margin:0 auto; position:relative; padding-top:150px;}
 			.table .cell .box .head {position:relative; transform-origin:center; transition:all 0.5s; top:0; z-index:90;}
 			.table .cell .box .body {margin-top:10px; z-index:80; position:relative;}
 			.table .cell .box .food {position:absolute; width:60%; bottom:3px; transition:all 0.5s; left:50%; margin-left:-10.5vw;}
 			.table .cell .firebox {overflow:hidden; width:20%; margin:0 auto; --box-shadow:0 3px #000;}
-			.table .cell .firebox img {float:left; width:29%; margin:0 2%;}
+			.table .cell .firebox img {float:left; width:29%; margin:0 2%;} */
+
+			.content {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 100vh;
+			}
+			.container {
+				padding-top: 20%;
+				max-width: 400px;
+				width: 60%;
+				position: relative;
+			}
+			.container>.cap>img {
+				display: block;
+			}
+			.container>.pot {
+				margin-top: 2%;
+			}
+			.container>.pot>img {
+				display: block;
+			}
+			.foodbox {
+				position: absolute;
+				bottom: 16%;
+				width: 100%;
+				z-index: 1;
+			}
+			.foodbox>img {
+				margin: 0 auto;
+				display: none;
+				width: 60%;
+			}
+			.foodbox>img.on {
+				display: block;
+			}
+			.firebox {
+				width: 40%;
+				margin: 2% auto 0;
+				overflow: hidden;
+			}
+			.firebox>img {
+				float: left;
+				display: block;
+				width: 33.333%;
+			}
 		</style>
 	</head>
 	<body>
-		<div class="table">
+		<div class="content">
+			<div class="container">
+				<div class="cap">
+					<img src="cap.png">
+				</div>
+				<div class="pot">
+					<img src="pot.png">
+				</div>
+
+				<div class="foodbox">
+					<img class="food food1" src="food1.png">
+					<img class="food food2" src="food2.png">
+					<img class="food food3" src="food3.png">
+					<img class="food food4" src="food4.png">
+				</div>
+
+				<div class="firebox">
+					<img class="fire1" src="fire.png">
+					<img class="fire2" src="fire.png">
+					<img class="fire3" src="fire.png">
+				</div>
+			</div>
+		</div>
+
+		<!-- <div class="table">
 			<div class="cell">
 				<div class="box">
-					<img class="head" src="head.png">
+					<img class="head" src="head.png">z
 					<img class="body" src="body.png">
 					<img class="food food1" src="food1.png">
 					<img class="food food2" src="food2.png">
@@ -90,6 +160,10 @@
 					<img class="fire3" src="fire.png">
 				</div>
 			</div>
-		</div>
+		</div> -->
+
+		<script>
+
+		</script>
 	</body>
 </html>
