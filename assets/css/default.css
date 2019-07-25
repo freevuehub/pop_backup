@@ -10,6 +10,9 @@ ul,
 ol {
   list-style: none;
 }
+img {
+  border: 0;
+}
 body,
 html {
   font-size: 14px;
