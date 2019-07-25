@@ -1,0 +1,37 @@
+.moveLeft-leave-active {
+  transition: all .2s;
+}
+.moveLeft-enter-active {
+  transition: all .2s;
+}
+.moveLeft-leave {
+  left: 0;
+}
+.moveLeft-leave-to {
+  left: 100%;
+}
+.moveLeft-enter {
+  left: 100%;
+}
+.moveLeft-enter-to {
+  left: 0;
+}
+
+.moveRight-leave-active {
+  transition: all .2s;
+}
+.moveRight-enter-active {
+  transition: all .2s;
+}
+.moveRight-leave {
+  right: 0;
+}
+.moveRight-leave-to {
+  right: 100%;
+}
+.moveRight-enter {
+  right: 100%;
+}
+.moveRight-enter-to {
+  right: 0;
+}
