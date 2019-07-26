@@ -1,3 +1,5 @@
 <template>
-  <nuxt style="position: relative;" />
+  <div>
+    <nuxt style="position: relative;" />
+  </div>
 </template>

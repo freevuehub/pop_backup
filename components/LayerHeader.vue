@@ -18,6 +18,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  font-size: 30px;
+  font-size: 50px;
 }
 </style>

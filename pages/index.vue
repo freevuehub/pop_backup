@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="position: relative;">
     <AppHeader />
     <div :class="$style.container">
       <div :class="$style.wrap">
@@ -11,15 +11,16 @@
         </div>
       </div>
     </div>
+
+    <nuxt-child style="position: relative;" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import { AppHeader } from '~/components';
+import { AppHeader } from '../components/index';
 
 export default Vue.extend({
-  transition: 'moveLeft',
   components: {
     AppHeader
   }
