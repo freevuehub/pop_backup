@@ -11,8 +11,6 @@
         </div>
       </div>
     </div>
-
-    <nuxt-child />
   </div>
 </template>
 
